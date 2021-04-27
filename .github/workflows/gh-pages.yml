@@ -1,4 +1,4 @@
-name: build
+name: deployment
 on:
   push:
     branches:
@@ -7,12 +7,15 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 14 ]
     steps:
       - uses: actions/checkout@v2
-      - name: Setup Node
+      - name: Setup Node ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
-          node-version: "14"
+          node-version: ${{ matrix.node-version }}
       - name: Cache dependencies
         uses: actions/cache@v2
         with:
