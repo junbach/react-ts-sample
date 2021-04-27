@@ -2,6 +2,7 @@
   "name": "react-ts-sample",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://junbach.github.io/react-ts-sample",
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
