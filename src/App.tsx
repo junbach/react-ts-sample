@@ -1,23 +1,23 @@
 import "./App.css";
 
-import { FunctionComponent } from "react";
+import { Box, Button, Container, CssBaseline } from "@material-ui/core";
+import { Send } from "@material-ui/icons";
+import { ReactElement } from "react";
 
 import logo from "./logo.svg";
 
-const App: FunctionComponent = () => {
+export default function App(): ReactElement {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <CssBaseline />
+      <Container maxWidth="lg" className="appContainer">
+        <Box color="primary" className="appContent">
+          <img src={logo} className="appLogo" alt="logo" />
+          <Button variant="contained" color="secondary" startIcon={<Send />}>
+            Send me a message
+          </Button>
+        </Box>
+      </Container>
+    </>
   );
-};
-
-export default App;
+}
