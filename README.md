@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# React TypeScript sample project
+
+![Pages deployment](https://github.com/junbach/react-ts-sample/actions/workflows/gh-pages.yml/badge.svg)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
