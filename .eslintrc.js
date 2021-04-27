@@ -1,52 +1,60 @@
 module.exports = {
-  parser: "@typescript-eslint/parser", // Specifies the ESLint parser
+  root: true,
+  parser: "@typescript-eslint/parser",
   parserOptions: {
-    ecmaVersion: 2020, // Allows for the parsing of modern ECMAScript features
-    sourceType: "module", // Allows for the use of imports
+    ecmaVersion: 2020,
+    sourceType: "module",
     ecmaFeatures: {
-      jsx: true, // Allows for the parsing of JSX
+      jsx: true,
     },
-    // project: "./tsconfig.eslint.json",
   },
   settings: {
     react: {
-      version: "detect", // Tells eslint-plugin-react to automatically detect the version of React to use
+      version: "detect",
     },
   },
+  env: {
+    browser: true,
+    amd: true,
+    node: true,
+  },
   extends: [
-    "react-app",
-    "react-app/jest",
-    "plugin:react/recommended", // Uses the recommended rules from @eslint-plugin-react
-    "plugin:@typescript-eslint/recommended", // Uses the recommended rules from @typescript-eslint/eslint-plugin,
-    "plugin:prettier/recommended", // Enables eslint-plugin-prettier and eslint-config-prettier. This will display prettier errors as ESLint errors. Make sure this is always the last configuration in the extends array.
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended", // Make sure this is always the last element in the array.
   ],
+  plugins: ["simple-import-sort", "prettier"],
   rules: {
-    // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
-    "@typescript-eslint/no-explicit-any": "off",
-    "no-plusplus": [
+    "prettier/prettier": ["error", {}, { usePrettierrc: true }],
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "jsx-a11y/accessible-emoji": "off",
+    "react/prop-types": "off",
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "jsx-a11y/anchor-is-valid": [
       "error",
       {
-        "allowForLoopAfterthoughts": true
-      }
+        components: ["Link"],
+        specialLink: ["hrefLeft", "hrefRight"],
+        aspects: ["invalidHref", "preferButton"],
+      },
     ],
-    "react/jsx-key": "error",
-    "react/jsx-props-no-spreading": "off",
-    "import/prefer-default-export": "off",
-    "react/jsx-boolean-value": "off",
-    "react/prop-types": "off",
-    "react/no-unescaped-entities": "off",
-    "react/jsx-one-expression-per-line": "off",
-    "react/jsx-wrap-multilines": "off",
-    "react/destructuring-assignment": "off",
-    "react/jsx-uses-react": "off",
-    "react/react-in-jsx-scope": "off"
+    // "react/jsx-props-no-spreading": "off",
+    // "react/jsx-boolean-value": "off",
+    // "react/no-unescaped-entities": "off",
+    // "react/jsx-one-expression-per-line": "off",
+    // "react/jsx-wrap-multilines": "off",
+    // "react/destructuring-assignment": "off"
   },
   overrides: [
     {
       files: ["*.js"],
       rules: {
         "@typescript-eslint/explicit-function-return-type": "off",
-      }
-    }
-  ]
+      },
+    },
+  ],
 };
