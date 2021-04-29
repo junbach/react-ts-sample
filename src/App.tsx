@@ -1,10 +1,10 @@
 import "./App.css";
 
-import { ReactNode } from "react";
+import { ReactElement } from "react";
 
 import logo from "./logo.svg";
 
-export default function App(): ReactNode {
+export default function App(): ReactElement {
   return (
     <div className="App">
       <header className="App-header">
