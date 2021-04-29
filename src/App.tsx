@@ -2,7 +2,7 @@ import "./App.css";
 
 import { SendOutlined } from "@ant-design/icons";
 import { Button, Divider, Layout, notification } from "antd";
-import { ReactElement } from "react";
+import { ReactNode } from "react";
 
 import logo from "./logo.svg";
 
@@ -13,7 +13,7 @@ const sendMessage = () =>
     description: "This is a greeting message sent from the moon",
   });
 
-export default function App(): ReactElement {
+export default function App(): ReactNode {
   return (
     <Layout>
       <Header className="appHeader">
